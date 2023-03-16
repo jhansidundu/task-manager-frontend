@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <script src="https://kit.fontawesome.com/e3438b9cea.js" crossorigin="anonymous"></script>
+  <script src="scripts/util/auth.js"></script>
+</head>
+
+<body>
+  <div class="navbar flex-center">
+    <div class="name-title">
+      <p>Task Manager</p>
+    </div>
+    <nav class="nav-items">
+      <a class="nav-item active" href=""><i class="fa-solid fa-house"></i>Home</a>
+      <a class="nav-item" href=""><i class="fa-solid fa-user-large"></i>About</a>
+      <a class="nav-item" href=""><i class="fa-solid fa-envelope-circle-check"></i>Contact</a>
+    </nav>
+    <div class="log-action">
+      <div id="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </div>
+    </div>
+  </div>
+  <main class="main-content">
+    <div class="options">
+      <div class="option active">All</div>
+      <div class="option">Today</div>
+      <div class="option">This Week</div>
+      <div class="option">This Month</div>
+    </div>
+    <div class="task-container">
+      <div id="grid">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Task Title</h3>
+          </div>
+          <div class="card-body">
+            <div class="description">
+              <label>Description</label>
+              <span class="edit-icon">
+                <i class="fa-solid fa-pen"></i>
+              </span>
+              <span class="cancel-icon">
+                <i class="fa-sharp fa-solid fa-xmark"></i>
+              </span>
+              <span class="check-icon">
+                <i class="fa-solid fa-check"></i>
+              </span>
+              <textarea class="text block" rows="6" cols="40" disabled="true">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam nobis culpa adipisci
+                aspernatur inventore, quo minima assumenda a vitae ut excepturi pariatur facilis voluptatum optio. Fugit
+                totam sit explicabo rem porro! Dolorem culpa rem, suscipit est sequi sit ratione commodi similique odio
+                sed possimus nostrum in incidunt fugit mollitia quidem!</textarea>
+            </div>
+            <div class="status">
+              <label>Status</label>
+              <span class="edit-icon">
+                <i class="fa-solid fa-pen"></i>
+              </span>
+              <span class="cancel-icon">
+                <i class="fa-sharp fa-solid fa-xmark"></i>
+              </span>
+              <span class="check-icon">
+                <i class="fa-solid fa-check"></i>
+              </span>
+              <select class="text block" disabled>
+                <option value=""></option>
+                <option value="NOT_COMPLETED">Not Completed</option>
+                <option value="COMPLETED">Completed</option>
+                <option value="PENDING">Pending</option>
+              </select>
+            </div>
+            <div class="due-date">
+              <label for="">Due Date</label>
+              <span class="edit-icon">
+                <i class="fa-solid fa-pen"></i>
+              </span>
+              <span class="cancel-icon">
+                <i class="fa-sharp fa-solid fa-xmark"></i>
+              </span>
+              <span class="check-icon">
+                <i class="fa-solid fa-check"></i>
+              </span>
+              <input class="block text" type="date" name="" value="2023-03-15" disabled/>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-primary">Complete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="/scripts/home.js"></script>
+</body>
+
+</html>

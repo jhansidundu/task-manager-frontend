@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  max-width: 80%;
+  margin: 150px auto;
+}
+
+.tabs {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.tab-link {
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  background-color: #0096c7;
+  color: #ffffff;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.6;
+  font-size: 1.15rem;
+}
+
+.tab-link.active {
+  font-weight: bold;
+  color: #fff;
+  opacity: 1;
+  background-color: #0096c7;
+}
+
+.tab-content {
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.tab {
+  padding: 1rem;
+  display: none;
+}
+
+.tab.active {
+  display: block;
+}
+
+.tab:not(.active) {
+  display: none;
+}
+
+form input,
+form button {
+  display: block;
+  margin: 0.75rem auto;
+  padding: 0.5rem 1rem;
+}
+
+form input {
+  width: 50%;
+}
