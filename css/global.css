@@ -22,26 +22,26 @@ h3 {
   display: block;
 }
 
-.nav-items > .nav-item {
+.nav-items>.nav-item {
   margin: 0 0.5rem;
 }
 
-.nav-items > a.nav-item {
+.nav-items>a.nav-item {
   text-decoration: none;
   font-size: 1.15rem;
   font-weight: 500;
   color: #9e9e9e;
 }
 
-.nav-items > a.nav-item:hover {
+.nav-items>a.nav-item:hover {
   opacity: 0.75;
 }
 
-.nav-items > a.nav-item.active {
+.nav-items>a.nav-item.active {
   color: #fff;
 }
 
-.nav-items > a.nav-item > i {
+.nav-items>a.nav-item>i {
   padding-right: 0.5rem;
 }
 
@@ -51,7 +51,7 @@ h3 {
   color: #fff;
 }
 
-.name-title > p {
+.name-title>p {
   margin: 0;
   font-size: 1.5rem;
   font-weight: 600;
@@ -61,15 +61,15 @@ h3 {
   margin-right: 2rem;
 }
 
-.log-action > #logout-btn {
+.log-action>#logout-btn {
   cursor: pointer;
 }
 
-.log-action > #logout-btn:hover {
+.log-action>#logout-btn:hover {
   opacity: 0.9;
 }
 
-.log-action  i {
+.log-action i {
   font-size: 1.5rem;
   color: white;
 }
@@ -100,5 +100,72 @@ h3 {
 }
 
 .invisible {
-  visibility: hidden;
+  /* visibility: hidden; */
+  display: none !important;
+}
+
+/* loading spinner */
+.loader-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  border-right: 16px solid #3498db;
+  border-bottom: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* button styles */
+.btn {
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #0069d9;
 }

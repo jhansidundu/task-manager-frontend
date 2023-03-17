@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/about.css">
+  <script src="https://kit.fontawesome.com/e3438b9cea.js" crossorigin="anonymous"></script>
+  <script src="scripts/util/auth.js"></script>
 </head>
+
 <body>
-  
+  <div class="navbar flex-center">
+    <div class="name-title">
+      <p>Task Manager</p>
+    </div>
+    <nav class="nav-items">
+      <a class="nav-item" href="home.html"><i class="fa-solid fa-house"></i>Home</a>
+      <a class="nav-item active" href=""><i class="fa-solid fa-user-large"></i>About</a>
+      <a class="nav-item" href=""><i class="fa-solid fa-envelope-circle-check"></i>Contact</a>
+    </nav>
+    <div class="log-action">
+      <div id="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </div>
+    </div>
+  </div>
+  <main class="main-content">
+    <h4>Not yet implemented</h4>
+  </main>
+  <script type="module" src="scripts/about.js"></script>
 </body>
+
 </html>

@@ -2,6 +2,7 @@ import { BASE_URL } from "./util/constants.js";
 // Select all tabs and tab contents
 const tabs = document.querySelectorAll('.tab');
 const tabContents = document.querySelectorAll('.tab-content');
+const loadingSpinner = document.querySelector('.loader-container')
 
 // Add click event listener to each tab link
 document.querySelectorAll('.tab-link').forEach(tabLink => {
@@ -31,6 +32,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
   // validate email and password and perform login action
   try {
     const payload = { email, password }
+    loadingSpinner.classList.remove('invisible')
     let response = await fetch(`${BASE_URL}/auth/login`, {
       method: "POST",
       headers: {
@@ -38,6 +40,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
       },
       body: JSON.stringify(payload)
     })
+    loadingSpinner.classList.add('invisible')
     response = await response.json()
     console.log(response)
     localStorage.setItem("jwtToken", `token=${response.data.token};expires=${new Date().getTime() + (3600 * 1000)}`)
@@ -57,6 +60,7 @@ document.getElementById('signup-form').addEventListener('submit', async (event) 
   // validate username, password, and confirmPassword and perform signup
   try {
     const payload = { username, password, email }
+    loadingSpinner.classList.remove('invisible')
     let response = await fetch(`${BASE_URL}/auth/register`, {
       method: 'POST',
       headers: {
@@ -64,6 +68,7 @@ document.getElementById('signup-form').addEventListener('submit', async (event) 
       },
       body: JSON.stringify(payload)
     })
+    loadingSpinner.classList.add('invisible')
     response = await response.json()
     console.log(response)
   } catch (err) {

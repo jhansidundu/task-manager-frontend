@@ -12,6 +12,9 @@
 </head>
 
 <body>
+  <div class="loader-container invisible">
+    <div class="loader"></div>
+  </div>
   <div class="container">
     <div class="tabs">
       <button class="tab-link active" data-tab="login-tab">Login</button>
@@ -22,7 +25,7 @@
         <form id="login-form">
           <input type="text" name="email" placeholder="Email">
           <input type="password" name="password" placeholder="Password">
-          <button type="submit">Log in</button>
+          <button type="submit" class="btn btn-primary">Log in</button>
         </form>
       </div>
       <div id="signup-tab" class="tab">
@@ -30,7 +33,7 @@
           <input type="text" name="username" placeholder="Username">
           <input type="email" name="email" placeholder="Email">
           <input type="password" name="password" placeholder="Password">
-          <button type="submit">Sign up</button>
+          <button type="submit" class="btn btn-primary">Sign up</button>
         </form>
       </div>
     </div>
