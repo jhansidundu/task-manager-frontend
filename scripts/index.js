@@ -46,7 +46,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
     loadingSpinner.classList.add('invisible')
     const responseBody = await response.json()
     if (responseBody.success) {
-      localStorage.setItem("jwtToken", `token=${responseBody.data.token};expires=${new Date().getTime() + (3600 * 1000)}`)
+      localStorage.setItem("jwtToken", `token=${responseBody.data.token};expires=${new Date().getTime() + (24 * 3600 * 1000)}`)
       localStorage.setItem('username', responseBody.data.username.toUpperCase())
       window.location.href = "home.html"
     } else {
@@ -86,7 +86,7 @@ document.getElementById('signup-form').addEventListener('submit', async (event) 
     loadingSpinner.classList.add('invisible')
     const responseBody = await response.json()
     if (responseBody.success) {
-      localStorage.setItem("jwtToken", `token=${responseBody.data.token};expires=${new Date().getTime() + (3600 * 1000)}`)
+      localStorage.setItem("jwtToken", `token=${responseBody.data.token};expires=${new Date().getTime() + (24 * 3600 * 1000)}`)
       localStorage.setItem('username', responseBody.data.username.toUpperCase())
       window.location.href = "home.html"
     } else {
