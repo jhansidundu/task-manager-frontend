@@ -58,14 +58,26 @@ h3 {
 }
 
 .log-action {
-  margin-right: 2rem;
+  margin-right: 1rem;
+  display: flex;
 }
 
-.log-action>#logout-btn {
+.log-action>#user {
+  padding-right: 1rem;
+  color: white;
+}
+
+.log-action>#user>#username {
+  padding-left: 0.5rem;
+}
+
+.log-action>#logout-btn,
+.log-action>#user {
   cursor: pointer;
 }
 
-.log-action>#logout-btn:hover {
+.log-action>#logout-btn:hover,
+.log-action>#user:hover {
   opacity: 0.9;
 }
 

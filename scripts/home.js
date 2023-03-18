@@ -8,6 +8,8 @@ let selectedOptions = {}
 const options = document.querySelectorAll(".options")[0]
 const optionsList = options.querySelectorAll(".option")
 const loadingSpinner = document.querySelector('.loader-container')
+const username = document.getElementById('username')
+username.textContent = localStorage.getItem('username')
 
 optionsList.forEach(option => {
   option.addEventListener("click", (event) => {

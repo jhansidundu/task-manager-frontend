@@ -1,7 +1,6 @@
 import { BASE_URL } from "./util/constants.js";
 // Select all tabs and tab contents
 const tabs = document.querySelectorAll('.tab');
-const tabContents = document.querySelectorAll('.tab-content');
 const loadingSpinner = document.querySelector('.loader-container')
 
 // Add click event listener to each tab link
@@ -48,6 +47,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
     const responseBody = await response.json()
     if (responseBody.success) {
       localStorage.setItem("jwtToken", `token=${responseBody.data.token};expires=${new Date().getTime() + (3600 * 1000)}`)
+      localStorage.setItem('username', responseBody.data.username.toUpperCase())
       window.location.href = "home.html"
     } else {
       loginErrorMessage.classList.remove('invisible')
@@ -87,6 +87,7 @@ document.getElementById('signup-form').addEventListener('submit', async (event) 
     const responseBody = await response.json()
     if (responseBody.success) {
       localStorage.setItem("jwtToken", `token=${responseBody.data.token};expires=${new Date().getTime() + (3600 * 1000)}`)
+      localStorage.setItem('username', responseBody.data.username.toUpperCase())
       window.location.href = "home.html"
     } else {
       registerErrorMessage.classList.remove('invisible')
