@@ -60,3 +60,9 @@ form button {
 form input {
   width: 50%;
 }
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin: 0.5rem;
+}

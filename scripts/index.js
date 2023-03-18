@@ -26,6 +26,10 @@ document.querySelectorAll('.tab-link').forEach(tabLink => {
 // Add submit event listener to login form
 document.getElementById('login-form').addEventListener('submit', async (event) => {
   event.preventDefault(); // prevent default form submission
+  const loginErrorMessage = document.getElementById('login-error-message')
+  if (!loginErrorMessage.classList.contains('invisible')) {
+    loginErrorMessage.classList.add('invisible')
+  }
   const formData = new FormData(event.target); // get form data
   const email = formData.get('email');
   const password = formData.get('password');
@@ -33,7 +37,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
   try {
     const payload = { email, password }
     loadingSpinner.classList.remove('invisible')
-    let response = await fetch(`${BASE_URL}/auth/login`, {
+    const response = await fetch(`${BASE_URL}/auth/login`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -41,10 +45,14 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
       body: JSON.stringify(payload)
     })
     loadingSpinner.classList.add('invisible')
-    response = await response.json()
-    console.log(response)
-    localStorage.setItem("jwtToken", `token=${response.data.token};expires=${new Date().getTime() + (3600 * 1000)}`)
-    window.location.href = "home.html"
+    const responseBody = await response.json()
+    if (responseBody.success) {
+      localStorage.setItem("jwtToken", `token=${responseBody.data.token};expires=${new Date().getTime() + (3600 * 1000)}`)
+      window.location.href = "home.html"
+    } else {
+      loginErrorMessage.classList.remove('invisible')
+      loginErrorMessage.textContent = 'Invalid Username/Password'
+    }
   } catch (err) {
     console.log(err)
   }
@@ -53,6 +61,13 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
 // Add submit event listener to signup form
 document.getElementById('signup-form').addEventListener('submit', async (event) => {
   event.preventDefault(); // prevent default form submission
+
+  const registerErrorMessage = document.getElementById('register-error-message')
+  if (!registerErrorMessage.classList.contains('invisible')) {
+    registerErrorMessage.classList.add('invisible')
+    registerErrorMessage.textContent = ''
+  }
+
   const formData = new FormData(event.target); // get form data
   const username = formData.get('username');
   const password = formData.get('password');
@@ -61,7 +76,7 @@ document.getElementById('signup-form').addEventListener('submit', async (event) 
   try {
     const payload = { username, password, email }
     loadingSpinner.classList.remove('invisible')
-    let response = await fetch(`${BASE_URL}/auth/register`, {
+    const response = await fetch(`${BASE_URL}/auth/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -69,8 +84,18 @@ document.getElementById('signup-form').addEventListener('submit', async (event) 
       body: JSON.stringify(payload)
     })
     loadingSpinner.classList.add('invisible')
-    response = await response.json()
-    console.log(response)
+    const responseBody = await response.json()
+    if (responseBody.success) {
+      localStorage.setItem("jwtToken", `token=${responseBody.data.token};expires=${new Date().getTime() + (3600 * 1000)}`)
+      window.location.href = "home.html"
+    } else {
+      registerErrorMessage.classList.remove('invisible')
+      if (typeof responseBody.message === 'string') {
+        registerErrorMessage.textContent = responseBody.message
+      } else {
+        registerErrorMessage.textContent = responseBody.message[0].message
+      }
+    }
   } catch (err) {
     console.log(err)
   }
